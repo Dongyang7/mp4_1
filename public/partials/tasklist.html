@@ -1,0 +1,29 @@
+<h1 class="columns small-5 small-offset-3">Task List</h1>
+<a class="columns small-3" href="/#addtask">Add Task</a>
+
+<form class="columns small-6 small-offset-3" name="order">
+    <input ng-click="completed(1)" type="radio" name="sort" checked> Pending
+    <input ng-click="completed(0)" type="radio" name="sort"> Completed
+    <input ng-click="completed(2)" type="radio" name="sort">All
+</form>
+<select class="columns small-6 small-offset-3" ng-model="orderby" ng-click="orderbywhat()">
+    <option selected="selected" value="dateCreated">dateCreated</option>
+    <option value="deadline">deadline</option>
+    <option value="name">name</option>
+    <option value="assignedUserName">assignedUserName</option>
+</select>
+<form class="columns small-6 small-offset-3" ng-model="ascending">
+    <input  ng-click="ascend(1)" type="radio" name="sort"> Ascending</option>
+    <input ng-click="ascend(-1)" type="radio" name="sort" checked> Descending</option>
+</form>
+<div class="columns small-6 small-offset-5">
+    <button ng-click="skip10(-10)">Previous</button>
+    <button ng-click="skip10(10)">Next</button></div>
+<div class="columns small-6 small-offset-3 list" ng-repeat="x in task">
+    <a class="row" href="#/taskdetail/{{x._id}}">
+        <div class="columns small-5">{{x.name}}</div>
+    </a>
+    <div class="columns small-5">{{x.assignedUserName}}</div>
+    <button ng-click="deletetask(x._id)" class="columns small-1">Delete</button>
+</div>
+<div id="checktask"></div>

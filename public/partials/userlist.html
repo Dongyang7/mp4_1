@@ -1,0 +1,11 @@
+<h2 class="columns small-5 small-offset-3">User List:</h2>
+<a class="columns small-3 end" href="#/adduser">Add User</a>
+
+<div class="columns small-6 small-offset-3 list" ng-repeat="x in info">
+    <a class="columns small-5" href="#/userdetail/{{x._id}}">
+        <div>{{x.name}}</div>
+    </a>
+    <div class="columns small-5">{{x.email}}</div>
+    <button ng-click="deleteuser(x._id)" class="columns small-1">Delete</button>
+</div>
+<div id="checkuser"></div>

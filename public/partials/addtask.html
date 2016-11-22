@@ -1,0 +1,16 @@
+<div class="columns small-6 small-offset-3">
+    <h2>Add Task</h2>
+    <div>Name</div><span class="star">*</span>
+    <input ng-model="task.name" type="text">
+    <div>Description</div>
+    <input ng-model="task.description" type="text">
+    <div>Deadline</div><span class="star">*</span>
+    <datepicker>
+        <input ng-model="task.deadline" type="text">
+    </datepicker>
+    <div>Assign to:</div>
+    <select ng-model="task.assignedUser">
+        <option ng-repeat="x in users" ng-value="x._id"><span>{{x.name}}</span></option>
+    </select>
+    <button ng-click="addtask()">Submit</button>
+</div>

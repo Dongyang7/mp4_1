@@ -1,0 +1,22 @@
+<div class="columns small-6 small-offset-3">
+    <h1>User Profile</h1>
+    <div ng-repeat="x in info">
+        <div>{{x.name}}</div>
+        <div>{{x.email}}</div>
+    </div>
+    <h2>Pending Tasks</h2>
+    <div ng-repeat="y in pendingtasks">
+        <a href="#/taskdetail/{{y._id}}">
+            <div>{{y.name}}</div>
+            <div>{{y.deadline}}</div>
+        </a>
+        <button ng-click="taskcompleted(y._id)">Completed</button>
+    </div>
+    <button ng-init="toshow=false" ng-click="toshow=true">Show completed tasks</button>
+    <div ng-show="toshow" ng-repeat="z in completedtasks">
+        <a href="#/taskdetail/{{z._id}}">
+            <div>{{z.name}}</div>
+            <div>{{z.deadline}}</div>
+        </a>
+    </div>
+</div>
